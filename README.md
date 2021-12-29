@@ -1,4 +1,5 @@
 # TodoList CLi
+An Todo list that help users to manage their daily tasks. Where you can add task, delete task, modify task , and mark as completed.
 This program was made in the NanoChallange2 at Apple developer academy, and it was built using Xcode CLi.
 
 # Program Features 
