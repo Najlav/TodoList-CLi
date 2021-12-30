@@ -10,7 +10,72 @@ var Task_list:[Task] = [];
 var run = true
 while(run){
  start()
- processInput()
+ var error = false
+    repeat {
+    print("\nPlease enter the operation number:")
+    var choice: Int = 0
+
+    if let operation = Int(readLine() ?? "0") {
+         choice = operation
+    }else{
+         print("please enter the operation number")
+    }
+
+    switch choice {
+
+     case 1: //add new task
+        print("Please enter the new task:")
+        if let input = readLine() {
+            newTask(name: input)
+        }else{
+            print(" 🔻🔺🔻🔺🔻🔺🔻 INVALID INPUT 🔺🔻🔺🔻🔺🔻🔺")
+        }
+
+     case 2: //modify task
+        print("Please enter the task number:")
+        var index = 0
+        if let input = Int(readLine() ?? "0"){
+            index = input
+        }else{
+            print(" 🔻🔺🔻🔺🔻🔺🔻 INVALID INPUT 🔺🔻🔺🔻🔺🔻🔺")
+            break
+        }
+        print("Please enter the modifiecation:")
+        var modifiedTask = ""
+        if let input2 = readLine(){
+            modifiedTask = input2
+        }else{
+            print(" 🔻🔺🔻🔺🔻🔺🔻 INVALID INPUT 🔺🔻🔺🔻🔺🔻🔺")
+            break
+        }
+        modifyTask(index : index , newName : modifiedTask)
+
+     case 3: // delete task
+         print("Please enter the task number to be deleted:")
+        if let input = Int(readLine() ?? "0"){
+            deleteTask(index: input)
+        }else{
+            print(" 🔻🔺🔻🔺🔻🔺🔻 INVALID INPUT 🔺🔻🔺🔻🔺🔻🔺")
+        }
+
+     case 4: // completed task
+         print("Please enter the completed task Number:")
+         if let input = Int(readLine() ?? "0"){
+             SetCompleted(index : input)
+         }else{
+             print(" 🔻🔺🔻🔺🔻🔺🔻 INVALID INPUT 🔺🔻🔺🔻🔺🔻🔺")
+         }
+
+     case 5:
+        run = false
+        print("Bye👋🏻")
+
+     default:
+         print("Unvalid input")
+         error = true
+     }
+   } while(error)
+ 
 }
 
 //--------------------- struct ------------------------
@@ -91,73 +156,4 @@ func start(){
           """)
 
 
-}
-
-
-func processInput(){
-var error = false
-    repeat {
-    print("\nPlease enter the operation number:")
-    var choice: Int = 0
-
-    if let operation = Int(readLine() ?? "0") {
-         choice = operation
-    }else{
-         print("please enter the operation number")
-    }
-
-    switch choice {
-
-     case 1: //add new task
-        print("Please enter the new task:")
-        if let input = readLine() {
-            newTask(name: input)
-        }else{
-            print(" 🔻🔺🔻🔺🔻🔺🔻 INVALID INPUT 🔺🔻🔺🔻🔺🔻🔺")
-        }
-
-     case 2: //modify task
-        print("Please enter the task number:")
-        var index = 0
-        if let input = Int(readLine() ?? "0"){
-            index = input
-        }else{
-            print(" 🔻🔺🔻🔺🔻🔺🔻 INVALID INPUT 🔺🔻🔺🔻🔺🔻🔺")
-            break
-        }
-        print("Please enter the modifiecation:")
-        var modifiedTask = ""
-        if let input2 = readLine(){
-            modifiedTask = input2
-        }else{
-            print(" 🔻🔺🔻🔺🔻🔺🔻 INVALID INPUT 🔺🔻🔺🔻🔺🔻🔺")
-            break
-        }
-        modifyTask(index : index , newName : modifiedTask)
-
-     case 3: // delete task
-         print("Please enter the task number to be deleted:")
-        if let input = Int(readLine() ?? "0"){
-            deleteTask(index: input)
-        }else{
-            print(" 🔻🔺🔻🔺🔻🔺🔻 INVALID INPUT 🔺🔻🔺🔻🔺🔻🔺")
-        }
-
-     case 4: // completed task
-         print("Please enter the completed task Number:")
-         if let input = Int(readLine() ?? "0"){
-             SetCompleted(index : input)
-         }else{
-             print(" 🔻🔺🔻🔺🔻🔺🔻 INVALID INPUT 🔺🔻🔺🔻🔺🔻🔺")
-         }
-
-     case 5:
-        run = false
-        print("Bye👋🏻")
-
-     default:
-         print("Unvalid input")
-         error = true
-     }
-   } while(error)
 }
