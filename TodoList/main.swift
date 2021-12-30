@@ -6,8 +6,9 @@
 //
 import Foundation
 
-var Task_list:[Task] = [];
+var taskList:[Task] = [];
 var run = true
+print(" \n⭐️ Hello, welcome to swift Todo List program ⭐️ \n")
 while(run){
  start()
  var error = false
@@ -92,14 +93,14 @@ struct Task {
 
 //--------------------- functions ------------------------
 func newTask(name : String){
-    Task_list.append(Task(name : name , isCompleted : false))
-    print(" 🟩🟩🟩🟩🟩🟩🟩 PROCESS COMPLETED 🟩🟩🟩🟩🟩🟩🟩")
+    taskList.append(Task(name : name , isCompleted : false))
+    print("🟩🟩🟩🟩🟩🟩🟩 PROCESS COMPLETED 🟩🟩🟩🟩🟩🟩🟩")
 }
 
 func SetCompleted(index : Int){
-    if index - 1 < Task_list.count {
-   Task_list[index - 1].isCompleted = true
-    print(" 🟩🟩🟩🟩🟩🟩🟩 PROCESS COMPLETED 🟩🟩🟩🟩🟩🟩🟩")
+    if index - 1 < taskList.count {
+        taskList[index - 1].isCompleted = true
+    print("🟩🟩🟩🟩🟩🟩🟩 PROCESS COMPLETED 🟩🟩🟩🟩🟩🟩🟩")
     }else{
         print(" 🔺🔻🔺🔻🔺🔻 THE TASK DOESN'T EXIST🔺🔻🔺🔻🔺🔻")
 
@@ -107,26 +108,25 @@ func SetCompleted(index : Int){
 }
 
 func modifyTask(index : Int , newName : String){
-    if index - 1 < Task_list.count {
-    Task_list[index - 1].name = newName
-        print(" 🟩🟩🟩🟩🟩🟩🟩 PROCESS COMPLETED 🟩🟩🟩🟩🟩🟩🟩")
+    if index - 1 < taskList.count {
+        taskList[index - 1].name = newName
+        print("🟩🟩🟩🟩🟩🟩🟩 PROCESS COMPLETED 🟩🟩🟩🟩🟩🟩🟩")
     }else{
         print(" 🔺🔻🔺🔻🔺🔻 THE TASK DOESN'T EXIST🔺🔻🔺🔻🔺🔻")
     }
 }
 
 func deleteTask(index : Int){
-    if index - 1 < Task_list.count {
-    Task_list.remove(at: index - 1)
-        print(" 🟩🟩🟩🟩🟩🟩🟩 PROCESS COMPLETED 🟩🟩🟩🟩🟩🟩🟩")
+    if index - 1 < taskList.count {
+        taskList.remove(at: index - 1)
+        print("🟩🟩🟩🟩🟩🟩🟩 PROCESS COMPLETED 🟩🟩🟩🟩🟩🟩🟩")
     }else{
         print(" 🔺🔻🔺🔻🔺🔻 THE TASK DOESN'T EXIST🔺🔻🔺🔻🔺🔻")
     }
 }
 
 func start(){
-    print(" \n⭐️ Hello, welcome to swift Todo List program ⭐️ \n")
-    if (Task_list.count < 1) {
+    if (taskList.count < 1) {
         print("""
               ------------------- Todo List -------------------
                              
@@ -136,8 +136,8 @@ func start(){
               """)
     }else{
         print("------------------- Todo List -------------------")
-        for index in  0..<Task_list.count{
-            print("\(index + 1). \(Task_list[index].name) \(Task_list[index].isCompleted == true ? " - ✅" : "")")
+        for index in  0..<taskList.count{
+            print("\(index + 1). \(taskList[index].name) \(taskList[index].isCompleted == true ? " - ✅" : "")")
 
             }
            }
